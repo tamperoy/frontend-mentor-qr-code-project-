@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>6f</title>
+</head>
+
+<body>
+    <button onclick="
+        playGame('Heads');
+        
+        ">
+        Heads
+    </button>
+
+    <button onclick="
+    playGame('Tails');
+    ">
+        Tails
+    </button>
+
+    <button onclick="
+    score.wins = 0;
+    score.losses = 0;
+    localStorage.removeItem('score');
+    ">
+        Reset Score
+    </button>
+    <script>
+
+        let score = JSON.parse(localStorage.getItem('score')) ||
+        {
+            wins: 0,
+            losses: 0
+        }
+        const guess = '';
+        function playGame(guess) {
+            const randomNumber = Math.random()
+
+            let result = '';
+
+            console.log(score);
+
+
+            if (randomNumber < 0.5) {
+                result = 'Heads'
+            }
+
+            else {
+                result = 'Tails'
+            }
+
+            console.log(result);
+
+            let text = '';
+
+            if (result === guess) {
+                text = 'You win!';
+                console.log(text);
+                score.wins += 1
+            }
+            else if (result != guess) {
+                text = 'You lose!';
+                console.log(text);
+                score.losses += 1
+            }
+
+            localStorage.setItem('score', JSON.stringify(score));
+
+            alert(`${text} wins: ${score.wins}
+            losses: ${score.losses}`)
+        }
+
+    </script>
+</body>
+
+</html>

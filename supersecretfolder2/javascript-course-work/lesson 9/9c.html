@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>9c</title>
+</head>
+
+<body>
+    <button class="heads" onclick="
+        buttons('heads');
+        ">
+        Heads
+    </button>
+
+    <button class="tails" onclick="
+    buttons('tails');
+    ">
+        Tails
+    </button>
+    <p class="paragraph"></p>
+
+    <script>
+        function buttons(param) {
+            if (param === 'heads') {
+                document.querySelector('.paragraph')
+                    .innerHTML = 'You chose: Heads';
+            }
+
+            if (param === 'tails') {
+                document.querySelector('.paragraph')
+                    .innerHTML = 'You chose: Tails';
+            }
+        }
+
+    </script>
+</body>
+
+</html>
